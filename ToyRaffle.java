@@ -27,3 +27,11 @@ public class ToyRaffle {
         toyQueue.add(toy1);
         toyQueue.add(toy2);
         toyQueue.add(toy3);
+
+// Добавлена запись результатов в файл results.txt после каждого выбора игрушки из очереди
+        try (FileWriter writer = new FileWriter("results.txt")) {
+            for (int i = 0; i < 10; i++) {
+                Toy selectedToy = toyQueue.poll();
+                writer.write("Toy id: " + selectedToy.id + " - " + selectedToy.name + "\n");
+                toyQueue.add(selectedToy); 
+            }
