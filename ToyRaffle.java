@@ -34,4 +34,10 @@ public class ToyRaffle {
                 Toy selectedToy = toyQueue.poll();
                 writer.write("Toy id: " + selectedToy.id + " - " + selectedToy.name + "\n");
                 toyQueue.add(selectedToy); 
-            }
+            }//Добавлено возвращение выбранной игрушки обратно в очередь после записи результатов
+
+       } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
