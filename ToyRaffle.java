@@ -20,7 +20,7 @@ public class ToyRaffle {
     public static void main(String[] args) {
         Toy toy1 = new Toy(1, "Doll", 3);
         Toy toy2 = new Toy(2, "Car", 2);
-        Toy toy3 = new Toy(3, "Teddy Bear", 5);
+        Toy toy3 = new Toy(3, "Teddy Bear", 3);
 
         PriorityQueue<Toy> toyQueue = new PriorityQueue<>(10, (t1, t2) -> t2.frequency - t1.frequency);
 
@@ -29,7 +29,7 @@ public class ToyRaffle {
         toyQueue.add(toy3);
 
 // Добавлена запись результатов в файл results.txt после каждого выбора игрушки из очереди
-        try (FileWriter writer = new FileWriter("results.txt")) {
+        try (FileWriter writer = new FileWriter("results2.txt")) {
             for (int i = 0; i < 10; i++) {
                 Toy selectedToy = toyQueue.poll();
                 writer.write("Toy id: " + selectedToy.id + " - " + selectedToy.name + "\n");
